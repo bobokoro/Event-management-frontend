@@ -28,3 +28,11 @@ export const getAllPublicEvents = async () => {
     const response = await api.get('/events/public');
     return response.data;
 };
+
+export const searchEvents = async (keyword, status) => {
+    const params = new URLSearchParams();
+    if (keyword) params.append('keyword', keyword);
+    if (status) params.append('status', status);
+    const response = await api.get(`/events/search?${params.toString()}`);
+    return response.data;
+};
