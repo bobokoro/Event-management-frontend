@@ -1,4 +1,6 @@
 import { useState } from "react";
+import GoogleIcon from '@mui/icons-material/Google';
+import { Divider } from '@mui/material';
 
 import {
   Box,
@@ -72,6 +74,7 @@ const Login = () => {
                             margin="normal"
                             required
                         />
+                        
                         <Button
                             fullWidth
                             type="submit"
@@ -82,9 +85,27 @@ const Login = () => {
                         >
                             {loading ? 'Signing in...' : 'Sign In'}
                         </Button>
+
+                        <Divider sx={{ my: 2 }}>OR</Divider>
+
+                        <Button
+                            fullWidth
+                            variant="outlined"
+                            size="large"
+                            startIcon={<GoogleIcon />}
+                            onClick={() => window.location.href = 'http://localhost:8081/oauth2/authorization/google'}
+                            sx={{ mb: 2 }}
+                        >
+                            Continue with Google
+                        </Button>
+
+                        
                         <Typography align="center">
                             Don't have an account?{' '}
                             <Link to="/register">Register here</Link>
+                        </Typography>
+                        <Typography align="center" sx={{ mt: 1 }}>
+                            <Link to="/forgot-password">Forgot your password?</Link>
                         </Typography>
                     </Box>
                 </Paper>

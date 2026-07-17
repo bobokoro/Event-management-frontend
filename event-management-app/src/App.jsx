@@ -11,6 +11,9 @@ import TicketTypes from './pages/events/TicketTypes';
 import PurchaseTicket from './pages/events/PurchaseTicket';
 import MyTickets from './pages/tickets/MyTickets';
 import ValidateTicket from './pages/validation/ValidateTicket';
+import ForgotPassword from './pages/auth/ForgotPassword';
+import ResetPassword from './pages/auth/ResetPassword';
+import OAuth2Callback from './pages/auth/OAuth2Callback';
 
 const ProtectedRoute = ({ children }) => {
     const { token } = useAuth();
@@ -99,7 +102,15 @@ const App = () => {
                         </ProtectedRoute>
                     }
                 />
-                
+
+                <Route
+                    path="/forgot-password" element={<ForgotPassword />}
+                />
+                <Route path="/oauth2/callback" element={<OAuth2Callback />}
+                />
+                <Route
+                    path="/reset-password" element={<ResetPassword />}
+                />
                 
             </Routes>
         </>
